@@ -1,0 +1,26 @@
+{
+  "name": "bxd-tattoo-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sistema de agendamento BXD Tattoo Studio",
+  "scripts": {
+    "api": "npm run dev --prefix src/api",
+    "api:start": "npm start --prefix src/api",
+    "frontend": "npm run dev --prefix src/frontend-app",
+    "install:api": "npm install --prefix src/api",
+    "install:frontend": "npm install --prefix src/frontend-app"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.3",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
