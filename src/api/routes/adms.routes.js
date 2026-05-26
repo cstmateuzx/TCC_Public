@@ -5,7 +5,7 @@ const { verificarTokenAdm } = require('../middleware/auth');
 
 const router = express.Router();
 
-router.post('/adm/novo', verificarTokenAdm, (req, res) => {
+router.post('/adm/novo', (req, res) => {
   const { nome, user, senha, conf_senha } = req.body;
 
   if (senha !== conf_senha) {

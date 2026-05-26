@@ -14,8 +14,9 @@ src/frontend-app/node_modules
 */dist-ssr
 *.local
 
-# API
+# API e FRONTEND
 src/api/.env
+src/frontend-app/.env
 src/api/data/*.db
 src/api/node_modules
 

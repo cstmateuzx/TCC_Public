@@ -1,6 +1,7 @@
 -- Esquema SQLite do BXD Tattoo Studio
 -- Aplicar: sqlite3 data/users.db < db/schema.sql
 
+
 CREATE TABLE IF NOT EXISTS usuario (
   id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,
   nome TEXT NOT NULL,
