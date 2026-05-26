@@ -60,7 +60,7 @@
     </div>
   </form>
 
-  <p class="text-center mt-4 mb-2" style="color: var(--bxd-text-muted)">Já possui conta?</p>
+  <p class="text-center mt-4 mb-2 text-muted">Já possui conta?</p>
   <button type="button" class="btn btn-bxd-secondary w-100" on:click={irParaLogin}>Fazer login</button>
 
   <Alert variant="danger" message={mensagem} />

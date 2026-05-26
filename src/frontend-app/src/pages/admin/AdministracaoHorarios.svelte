@@ -63,7 +63,7 @@
 
   <div class="page-card table-responsive">
     {#if horarios.length === 0 && !carregando}
-      <p class="text-center mb-0" style="color: var(--bxd-text-muted)">
+      <p class="text-center mb-0 text-muted">
         Nenhum horário cadastrado. Use &quot;Novo horário&quot; para disponibilizar.
       </p>
     {:else}
@@ -100,7 +100,7 @@
                     Excluir
                   </button>
                 {:else}
-                  <span style="color: var(--bxd-text-muted); font-size: 0.85rem">—</span>
+                  <span class="text-muted text-small">—</span>
                 {/if}
               </td>
             </tr>

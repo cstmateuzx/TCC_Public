@@ -70,7 +70,7 @@
     </div>
   </form>
 
-  <p class="text-center mt-4 mb-2" style="color: var(--bxd-text-muted)">Não possui cadastro?</p>
+  <p class="text-center mt-4 mb-2 text-muted">Não possui cadastro?</p>
   <button type="button" class="btn btn-bxd-link w-100" on:click={irParaCadastro}>
     Criar conta de cliente
   </button>

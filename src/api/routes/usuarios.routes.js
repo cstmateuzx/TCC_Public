@@ -8,18 +8,33 @@ const router = express.Router();
 router.post('/usuarios/novo', (req, res) => {
   const { nome, email, idade, senha } = req.body;
 
+  if (!nome || !email || !senha) {
+    return res.status(400).json({ message: 'Nome, email e senha são obrigatórios.' });
+  }
+
+  const idadeValue = idade != null && idade !== '' ? Number(idade) : null;
+
   db.get('SELECT * FROM usuario WHERE email = ?', [email], (err, row) => {
-    if (err) return res.status(500).json({ message: 'Erro ao verificar email.' });
+    if (err) {
+      console.error('Erro ao verificar email:', err.message);
+      return res.status(500).json({ message: 'Erro ao verificar email.' });
+    }
     if (row) return res.status(400).json({ message: 'Email já cadastrado.' });
 
     bcrypt.hash(senha, 10, (hashErr, hashedPassword) => {
-      if (hashErr) return res.status(500).json({ message: 'Erro ao gerar hash da senha.' });
+      if (hashErr) {
+        console.error('Erro ao gerar hash da senha:', hashErr.message);
+        return res.status(500).json({ message: 'Erro ao gerar hash da senha.' });
+      }
 
       db.run(
         'INSERT INTO usuario (nome, email, idade, senha) VALUES (?, ?, ?, ?)',
-        [nome, email, idade, hashedPassword],
+        [nome, email, idadeValue, hashedPassword],
         function (insertErr) {
-          if (insertErr) return res.status(500).json({ message: 'Erro ao cadastrar usuário.' });
+          if (insertErr) {
+            console.error('Erro ao cadastrar usuário:', insertErr.message);
+            return res.status(500).json({ message: 'Erro ao cadastrar usuário.' });
+          }
           return res.status(201).json({ id: this.lastID, message: 'Usuário cadastrado com sucesso!' });
         }
       );

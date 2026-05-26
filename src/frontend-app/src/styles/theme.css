@@ -1,22 +1,22 @@
 :root {
-  --bxd-bg: #1a1a1a;
-  --bxd-bg-elevated: #252525;
-  --bxd-bg-card: #2e2e2e;
-  --bxd-border: #404040;
+  --bxd-bg: #121212;
+  --bxd-bg-elevated: #1f1f1f;
+  --bxd-bg-card: #1f1f1f;
+  --bxd-border: #383838;
   --bxd-text: #e8e8e8;
-  --bxd-text-muted: #a3a3a3;
+  --bxd-text-muted: #a9a9a9;
   --bxd-heading: #ffffff;
   --bxd-accent: #c9a227;
   --bxd-accent-hover: #dbb42e;
-  --bxd-accent-muted: rgba(201, 162, 39, 0.15);
+  --bxd-accent-muted: rgba(201, 162, 39, 0.18);
   --bxd-danger: #e74c3c;
   --bxd-success: #2ecc71;
   --bxd-info: #3498db;
   --bxd-warning: #f39c12;
-  --bxd-radius: 8px;
-  --bxd-radius-lg: 12px;
-  --bxd-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  --bxd-font: "Segoe UI", system-ui, -apple-system, sans-serif;
-  --bxd-max-width: 720px;
-  --bxd-max-width-wide: 1100px;
+  --bxd-radius: 12px;
+  --bxd-radius-lg: 18px;
+  --bxd-shadow: 0 18px 48px rgba(0, 0, 0, 0.30);
+  --bxd-font: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --bxd-max-width: 760px;
+  --bxd-max-width-wide: 1180px;
 }

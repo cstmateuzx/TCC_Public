@@ -6,6 +6,18 @@ O sistema é dividido em duas aplicações:
 
 Se você está com dificuldade de rodar o projeto, será mais fácil baixar este modelo, colocar no seu repositório (copiar as duas pastas para dentro do seu projeto) e depois que estiver tudo funcionando aplicar suas alterações.
 
+Se estiver utilizando terminal WSL, o servidor precisa estar da seguinte forma:
+
+// Server.js
+const app = require('./app');
+const { port } = require('./config');
+
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Servidor rodando na porta ${port}`);
+});
+
+se não, pode remover o '0.0.0.0' ao lado da porta.
+
 ## Windows, Linux e WSL
 
 Este projeto funciona melhor rodando em ambiente Linux. Se você está utilizando Windows, basta rodar tudo dentro do WSL (linha de comando). Ao abrir sua IDE (VS Code recomendado) se certifique que está acessando o sistema no WSL e não no Windows, do contrário não funcionará corretamente. Se for este o caso, se certifique de que o projeto está dentro da pasta do WSL, não no sistema do Windows. Sugestão de caminho para clonar seu repositório: `/home/labcaxias/git`

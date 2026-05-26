@@ -69,7 +69,7 @@
 <PageShell title="Confirmação" subtitle="Revise os dados antes de finalizar">
   <BookingSteps current={3} />
 
-  <div class="resumo page-card" style="margin-bottom: 1rem; padding: 1rem;">
+  <div class="resumo page-card">
     {#if booking.data}
       <p><strong>Data:</strong> {booking.data}</p>
     {/if}
@@ -105,9 +105,3 @@
   <Alert variant="success" message={sucesso ? mensagem : ""} />
 </PageShell>
 
-<style>
-  .resumo p {
-    margin: 0.5rem 0;
-    color: var(--bxd-text);
-  }
-</style>

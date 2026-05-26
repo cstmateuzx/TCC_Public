@@ -51,35 +51,3 @@
     </button>
   </div>
 </PageShell>
-
-<style>
-  .admin-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1rem;
-  }
-
-  .admin-tile {
-    text-align: left;
-    cursor: pointer;
-    border: 1px solid var(--bxd-border);
-    transition: border-color 0.15s, transform 0.15s;
-    width: 100%;
-  }
-
-  .admin-tile:hover {
-    border-color: var(--bxd-accent);
-    transform: translateY(-2px);
-  }
-
-  .admin-tile strong {
-    display: block;
-    color: var(--bxd-heading);
-    margin-bottom: 0.35rem;
-  }
-
-  .admin-tile span {
-    color: var(--bxd-text-muted);
-    font-size: 0.9rem;
-  }
-</style>

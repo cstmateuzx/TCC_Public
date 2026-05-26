@@ -1,8 +1,8 @@
 import axios from "axios";
 import { get } from "svelte/store";
-import { api_base_url } from "./config";
-import { sessionStore } from "../stores/session";
-import { paginaAtual } from "../stores/navigation";
+import { api_base_url } from "./config.js";
+import { sessionStore } from "../stores/session.js";
+import { paginaAtual } from "../stores/navigation.js";
 
 export const api = axios.create({
   baseURL: api_base_url,
