@@ -30,3 +30,5 @@ src/api/node_modules
 *.njsproj
 *.sln
 *.sw?
+
+anotacoes.txt

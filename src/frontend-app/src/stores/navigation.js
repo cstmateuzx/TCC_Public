@@ -1,39 +1,38 @@
-import { get, writable } from "svelte/store";
+import { get } from "svelte/store";
+import { push } from "svelte-spa-router";
 import { sessionStore } from "./session";
 
 export { api_base_url } from "../lib/config";
 
-export const paginaAtual = writable("login");
-
 function requireAuth(callback) {
   if (!get(sessionStore)) {
-    paginaAtual.set("login");
+    push("/login");
     return;
   }
   callback();
 }
 
-export const irParaLogin = () => paginaAtual.set("login");
-export const irParaCadastro = () => paginaAtual.set("cadastro");
-export const irParaHome = () => paginaAtual.set("home");
+export const irParaLogin = () => push("/login");
+export const irParaCadastro = () => push("/cadastro");
+export const irParaHome = () => push("/home");
 
 export const irParaHomeADM = () => {
-  requireAuth(() => paginaAtual.set("homeadm"));
+  requireAuth(() => push("/admin"));
 };
 
 export const irParaAgendamento = () => {
-  requireAuth(() => paginaAtual.set("ag1"));
+  requireAuth(() => push("/agendamento/1"));
 };
 
-export const irParaCadastroADM = () => paginaAtual.set("cadadm");
-export const irParaCadastroSRC = () => paginaAtual.set("cadsrc");
-export const irParaCadastroHora = () => paginaAtual.set("cadhora");
+export const irParaCadastroADM = () => push("/admin/novo");
+export const irParaCadastroSRC = () => push("/admin/servico");
+export const irParaCadastroHora = () => push("/admin/horarios/novo");
 
-export const administrarADM = () => paginaAtual.set("admadm");
-export const administrarUser = () => paginaAtual.set("admuser");
-export const administrarServico = () => paginaAtual.set("admservico");
-export const administrarHorarios = () => paginaAtual.set("admhorarios");
+export const administrarADM = () => push("/admin/administradores");
+export const administrarUser = () => push("/admin/usuarios");
+export const administrarServico = () => push("/admin/servicos");
+export const administrarHorarios = () => push("/admin/horarios");
 
-export const agendamento1 = () => paginaAtual.set("ag1");
-export const agendamento2 = () => paginaAtual.set("ag2");
-export const agendamento3 = () => paginaAtual.set("ag3");
+export const agendamento1 = () => push("/agendamento/1");
+export const agendamento2 = () => push("/agendamento/2");
+export const agendamento3 = () => push("/agendamento/3");

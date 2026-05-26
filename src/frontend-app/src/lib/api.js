@@ -2,7 +2,7 @@ import axios from "axios";
 import { get } from "svelte/store";
 import { api_base_url } from "./config.js";
 import { sessionStore } from "../stores/session.js";
-import { paginaAtual } from "../stores/navigation.js";
+import { irParaLogin } from "../stores/navigation.js";
 
 export const api = axios.create({
   baseURL: api_base_url,
@@ -15,7 +15,7 @@ api.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401 && get(sessionStore)) {
       sessionStore.set(null);
-      paginaAtual.set("login");
+      irParaLogin();
     }
     return Promise.reject(error);
   }

@@ -1,5 +1,5 @@
 <script>
-  import { paginaAtual } from "./stores/navigation";
+  import Router from "svelte-spa-router";
   import Login from "./pages/Login.svelte";
   import Cadastro from "./pages/Cadastro.svelte";
   import Home from "./pages/Home.svelte";
@@ -15,32 +15,24 @@
   import AdministracaoServicos from "./pages/admin/AdministracaoServicos.svelte";
   import AdministracaoHorarios from "./pages/admin/AdministracaoHorarios.svelte";
 
-  const rotas = {
-    login: Login,
-    cadastro: Cadastro,
-    home: Home,
-    homeadm: HomeAdm,
-    cadadm: CadastroADM,
-    cadsrc: CadastroSRC,
-    cadhora: CadastroHora,
-    ag1: Agendamento1,
-    ag2: Agendamento2,
-    ag3: Agendamento3,
-    admadm: AdministracaoAdmins,
-    admuser: AdministracaoUsuarios,
-    admservico: AdministracaoServicos,
-    admhorarios: AdministracaoHorarios,
+  const routes = {
+    "/": Login,
+    "/login": Login,
+    "/cadastro": Cadastro,
+    "/home": Home,
+    "/admin": HomeAdm,
+    "/admin/novo": CadastroADM,
+    "/admin/servico": CadastroSRC,
+    "/admin/horarios": AdministracaoHorarios,
+    "/admin/horarios/novo": CadastroHora,
+    "/admin/administradores": AdministracaoAdmins,
+    "/admin/usuarios": AdministracaoUsuarios,
+    "/admin/servicos": AdministracaoServicos,
+    "/agendamento/1": Agendamento1,
+    "/agendamento/2": Agendamento2,
+    "/agendamento/3": Agendamento3,
+    "*": Login,
   };
-
-  /** @param {string} pagina */
-  function componenteDaPagina(pagina) {
-    if (pagina in rotas) {
-      return rotas[/** @type {keyof typeof rotas} */ (pagina)];
-    }
-    return Login;
-  }
 </script>
 
-{#key $paginaAtual}
-  <svelte:component this={componenteDaPagina($paginaAtual)} />
-{/key}
+<Router {routes} />

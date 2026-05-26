@@ -1,17 +1,6 @@
 <script>
+  import { link } from "svelte-spa-router";
   import { fazerLogout } from "../../lib/auth";
-  import {
-    irParaHome,
-    irParaHomeADM,
-    irParaCadastroADM,
-    irParaCadastroSRC,
-    irParaCadastroHora,
-    irParaAgendamento,
-    administrarADM,
-    administrarUser,
-    administrarServico,
-    administrarHorarios,
-  } from "../../stores/navigation";
 
   /** @type {'user' | 'admin'} */
   export let variant = "user";
@@ -26,26 +15,26 @@
 <header>
   <nav class="navbar navbar-dark navbar-bxd shadow-sm">
     <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
-      <button
-        type="button"
+      <a
+        href={variant === "admin" ? "/admin" : "/home"}
         class="navbar-brand d-flex align-items-center gap-2 border-0 bg-transparent p-0"
-        on:click={variant === "admin" ? irParaHomeADM : irParaHome}
+        use:link
       >
         <span class="brand-mark" aria-hidden="true">BXD</span>
         <span class="brand-text d-none d-sm-inline">Tattoo Studio</span>
-      </button>
+      </a>
 
       {#if variant === "user"}
         <div class="nav-links-desktop d-flex gap-3">
-          <button type="button" class="nav-link-bxd nav-btn" on:click={irParaHome}>Início</button>
-          <button type="button" class="nav-link-bxd nav-btn" on:click={irParaAgendamento}>Agendar</button>
+          <a href="/home" class="nav-link-bxd nav-btn" use:link>Início</a>
+          <a href="/agendamento/1" class="nav-link-bxd nav-btn" use:link>Agendar</a>
         </div>
       {:else}
         <div class="nav-links-desktop d-flex flex-wrap gap-2 justify-content-center">
-          <button type="button" class="nav-link-bxd nav-btn" on:click={irParaHomeADM}>Painel</button>
-          <button type="button" class="nav-link-bxd nav-btn" on:click={irParaCadastroADM}>Novo admin</button>
-          <button type="button" class="nav-link-bxd nav-btn" on:click={irParaCadastroSRC}>Novo serviço</button>
-          <button type="button" class="nav-link-bxd nav-btn" on:click={irParaCadastroHora}>Horários</button>
+          <a href="/admin" class="nav-link-bxd nav-btn" use:link>Painel</a>
+          <a href="/admin/novo" class="nav-link-bxd nav-btn" use:link>Novo admin</a>
+          <a href="/admin/servico" class="nav-link-bxd nav-btn" use:link>Novo serviço</a>
+          <a href="/admin/horarios" class="nav-link-bxd nav-btn" use:link>Horários</a>
         </div>
       {/if}
 
@@ -61,24 +50,24 @@
         <ul class="dropdown-menu dropdown-menu-end" class:show={menuOpen}>
           {#if variant === "admin"}
             <li>
-              <button type="button" class="dropdown-item" on:click={administrarADM}>
+              <a href="/admin/administradores" class="dropdown-item" use:link on:click={() => (menuOpen = false)}>
                 Administradores
-              </button>
+              </a>
             </li>
             <li>
-              <button type="button" class="dropdown-item" on:click={administrarUser}>
+              <a href="/admin/usuarios" class="dropdown-item" use:link on:click={() => (menuOpen = false)}>
                 Usuários
-              </button>
+              </a>
             </li>
             <li>
-              <button type="button" class="dropdown-item" on:click={administrarServico}>
+              <a href="/admin/servicos" class="dropdown-item" use:link on:click={() => (menuOpen = false)}>
                 Serviços
-              </button>
+              </a>
             </li>
             <li>
-              <button type="button" class="dropdown-item" on:click={administrarHorarios}>
+              <a href="/admin/horarios" class="dropdown-item" use:link on:click={() => (menuOpen = false)}>
                 Horários
-              </button>
+              </a>
             </li>
             <li><hr class="dropdown-divider" /></li>
           {/if}
